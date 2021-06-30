@@ -2,25 +2,48 @@ package com.bridgelabz.maxusinggenerics;
 
 public class MaximumUsingGenerics {
 	
-	static Integer max;
+	static Integer maxInt;
+	static Float maxFloat;
+	
 	public static int maximumInteger(Integer intFirst, Integer intSecond, Integer intThird)
 	{
-		max = intFirst;
-		if(intSecond.compareTo(max) > 0)
+		maxInt = intFirst;
+		if(intSecond.compareTo(maxInt) > 0)
 		{
-			max = intSecond;
+			maxInt = intSecond;
 		}
-		if(intThird.compareTo(max) > 0)
+		if(intThird.compareTo(maxInt) > 0)
 		{
-			max = intThird;
+			maxInt = intThird;
 		}
-		return max;
+		return maxInt;
+	}
+	
+	public static Float maximumFloat(Float floatFirst, Float floatSecond, Float floatThird)
+	{
+		maxFloat = floatFirst;
+		
+		if(floatSecond.compareTo(maxFloat) > 0)
+		{
+			maxFloat = floatSecond;
+		}
+		if(floatThird.compareTo(maxFloat) > 0)
+		{
+			maxFloat = floatThird;
+		}
+		return maxFloat;
 	}
 
 	public static void main(String[] args) {
+		
 		Integer intFirst = 23, intSecond = 52, intThird = 92;
+		Float floatFirst = 121.03f, floatSecond = 235.736f, floatThird = 119.009f;
+		
 		maximumInteger(intFirst, intSecond, intThird);
-		System.out.println("The Maximum Number is  :: "+ max);
+		System.out.println("The Maximum Integer Number is  :: "+ maxInt);
+	
+		maximumFloat(floatFirst, floatSecond, floatThird);
+		System.out.println("The Maximum Float Number is  :: "+ maxFloat);
 	}
 
 }
