@@ -1,11 +1,26 @@
 package com.bridgelabz.maxusinggenerics;
 
 public class MaximumUsingGenerics {
+	
+	static Integer max;
+	public static int maximumInteger(Integer intFirst, Integer intSecond, Integer intThird)
+	{
+		max = intFirst;
+		if(intSecond.compareTo(max) > 0)
+		{
+			max = intSecond;
+		}
+		if(intThird.compareTo(max) > 0)
+		{
+			max = intThird;
+		}
+		return max;
+	}
 
 	public static void main(String[] args) {
-
-		System.out.println("Welcome To Maimum of three using Generics Program.");
-		
+		Integer intFirst = 23, intSecond = 52, intThird = 92;
+		maximumInteger(intFirst, intSecond, intThird);
+		System.out.println("The Maximum Number is  :: "+ max);
 	}
 
 }
