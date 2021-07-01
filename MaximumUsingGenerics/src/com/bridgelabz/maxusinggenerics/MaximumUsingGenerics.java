@@ -3,7 +3,6 @@ package com.bridgelabz.maxusinggenerics;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import org.omg.CORBA.portable.ValueOutputStream;
 
 public class MaximumUsingGenerics<T extends Comparable<T>> {
 	
@@ -22,7 +21,7 @@ public class MaximumUsingGenerics<T extends Comparable<T>> {
 		this.arrayOfVariables = arrayOfVariables;
 	}
 
-	public void findMax() 
+	public <E extends  maximum, maximum>void findMax() 
 	{
 		maximum(this.firstVariable, this.secondVariable, this.thirdVariable,this.arrayOfVariables);
 	}
@@ -30,10 +29,9 @@ public class MaximumUsingGenerics<T extends Comparable<T>> {
 	public static <E extends Comparable<E>> void maximum(E firstVariable,E secondVariable,E thirdVariable,E[] arrayOfVariables) {
 		
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("\t\tChoose From the following by which you want to check ::\n \t\t 1) Get Maximum by compareTo method \n \t\t 2) Get Maximum "
+		System.out.println("Choose From the following by which you want to check ::\n \t\t 1) Get Maximum by compareTo method \n \t\t 2) Get Maximum "
 				+ "by Sorting method");
 		int option = scanner.nextInt();
-//		scanner.close();
 		switch (option) {
 		case 1:
 			E max = firstVariable;
@@ -45,18 +43,22 @@ public class MaximumUsingGenerics<T extends Comparable<T>> {
 			{
 				max = thirdVariable;
 			}
-			System.out.println("\t\tThe Maximum using CompareTo method is ::"+ max+"\n");			
+			printMax(max);			
 			break;
 		case 2:
 			Arrays.sort(arrayOfVariables);
-			System.out.println("\t\tThe Maximum using Sort method is ::" + arrayOfVariables[2]+"\n");
+			printMax(arrayOfVariables[2]);
 			break;
 
 		default:
-			System.out.println("Wrong !! Input is wrong.....!!");
+			System.out.println("\t\t Oops !! Input is wrong.....!!");
 			break;
 		}
 		
+	}
+	
+	private static <T> void printMax(T maximum) {
+		System.out.println("\t\t Maximum Number :: 	"+ maximum);
 	}
 		
 	public static void main(String[] args) {
@@ -71,10 +73,13 @@ public class MaximumUsingGenerics<T extends Comparable<T>> {
 		String[] arrayOfString = {stringFirst,stringSecond,stringThird};
 		
 		MaximumUsingGenerics <Integer> integerValue = new MaximumUsingGenerics<Integer>(intFirst,intSecond,intThird,arrayOfInteger);
+		System.out.print("For Searching Maximum From Integer ");
 		integerValue.findMax();
 		MaximumUsingGenerics <Float> floatValue = new MaximumUsingGenerics<Float>(floatFirst, floatSecond, floatThird,arrayOfFloat);
+		System.out.print("For Searching Maximum From Float ");
 		floatValue.findMax();
 		MaximumUsingGenerics <String> stringValue = new MaximumUsingGenerics<String>(stringFirst, stringSecond, stringThird,arrayOfString);
+		System.out.print("For Searching Maximum From String ");
 		stringValue.findMax();
 	}
 }
