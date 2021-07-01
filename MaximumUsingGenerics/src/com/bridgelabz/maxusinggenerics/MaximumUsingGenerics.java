@@ -1,20 +1,32 @@
 package com.bridgelabz.maxusinggenerics;
 
-public class MaximumUsingGenerics {
+public class MaximumUsingGenerics<T extends Comparable<T>> {
 	
-	static Integer maxInt;
-	static Float maxFloat;
-	static String maxString;
+	private T firstVariable;
+	private T secondVariable;
+	private T thirdVariable;
+		
+	public MaximumUsingGenerics(T firstVariable, T secondVariable, T thirdVariable) {
+		super();
+		this.firstVariable = firstVariable;
+		this.secondVariable = secondVariable;
+		this.thirdVariable = thirdVariable;
+	}
+
+	public void findMax() 
+	{
+		maximum(this.firstVariable, this.secondVariable, this.thirdVariable);
+	}
 	
-	public static <E extends Comparable<E>> E maximum(E first,E second,E third) {
-		E max = first;
-		if(second.compareTo(max) > 0)
+	public static <E extends Comparable<E>> E maximum(E firstVariable,E secondVariable,E thirdVariable) {
+		E max = firstVariable;
+		if(secondVariable.compareTo(max) > 0)
 		{
-			max = second;
+			max = secondVariable;
 		}
-		if(third.compareTo(max) > 0)
+		if(thirdVariable.compareTo(max) > 0)
 		{
-			max = third;
+			max = thirdVariable;
 		}
 		return max;
 	}
